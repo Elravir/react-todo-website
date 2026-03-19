@@ -1,16 +1,9 @@
+import styles from './Header.module.css'
+
 export const Header = () => {
     return (
-        <header className="header">
+        <header className={styles.header}>
             <h1>Блог</h1>
         </header>
     )
 }
-
-// const styles = {
-//   header: {
-//     backgroundColor: '#333',
-//     color: '#fff',
-//     padding: '20px',
-//     textAlign: 'center' as const
-//   }
-// };

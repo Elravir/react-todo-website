@@ -1,31 +1,17 @@
 import type { ReactNode } from "react";
-import {Header} from '../../widgets/LayoutHeader/Header'
-import {Footer} from '../../widgets/LayoutFooter/Footer'
+import styles from './MainLayout.module.css'
 
 interface Props{
     children: ReactNode;
+    header?: ReactNode;
+    footer?: ReactNode;
 }
-export const MainLayout = ({children}: Props) => {
+export const MainLayout = ({children, header, footer}: Props) => {
     return(
-        <div className="layout">
-            <Header/>
-            <main className='main'>{children}</main>
-            <Footer/>
+        <div className={styles.layout}>
+            {header}
+            <main className={styles.main}>{children}</main>
+            {footer}
         </div>
     )
 }
-
-// const styles = {
-//   layout: {
-//     minHeight: '100vh',
-//     display: 'flex',
-//     flexDirection: 'column' as const
-//   },
-//   main: {
-//     flex: 1,
-//     padding: '20px',
-//     maxWidth: '800px',
-//     margin: '0 auto',
-//     backgroundColor: '#f5f5f5'
-//   }
-// };

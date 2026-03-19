@@ -1,35 +1,20 @@
 import {MainLayout} from '../shared/layouts/MainLayout'
 import { PostList } from '../widgets/PostList/PostList'
-import type { Post } from '../entities/post/types';
+import { postsMocks } from '../entities/post/api/mock/posts.mock';
+import { Header } from '../widgets/LayoutHeader/Header';
+import { Footer } from '../widgets/LayoutFooter/Footer';
 
-const mockPosts: Post[] = [
-  {
-    id: 1,
-    title: 'First post',
-    body: 'It`s first post description.',
-    author: 'Ivan Ivanov',
-  },
-   {
-    id: 2,
-    title: 'Second post',
-    body: 'It`s Second post description.',
-    author: 'Petr Petrov',
-  },
-     {
-    id: 3,
-    title: 'Third post',
-    body: 'It`s Third post description.',
-    author: 'Alla Petrova',
-  },
-];
 
 
 function App() {
   
   return (
-    <MainLayout>
+    <MainLayout
+    header = {<Header/>}
+    footer = {<Footer/>}
+    >
       <h2>Список постов</h2>
-      <PostList posts={mockPosts}></PostList>
+      <PostList posts={postsMocks}></PostList>
     </MainLayout>
   )
 }
