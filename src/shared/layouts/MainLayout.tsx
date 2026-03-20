@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { useTheme } from "../lib/theme";
 import styles from './MainLayout.module.css'
 
 interface Props{
@@ -7,10 +8,12 @@ interface Props{
     footer?: ReactNode;
 }
 export const MainLayout = ({children, header, footer}: Props) => {
+    const {theme} = useTheme();
+    
     return(
-        <div className={styles.layout}>
+        <div className={`${styles.layout} ${styles[theme]}`}>
             {header}
-            <main className={styles.main}>{children}</main>
+            <main className={`${styles.main} ${styles[theme]}`}>{children}</main>
             {footer}
         </div>
     )

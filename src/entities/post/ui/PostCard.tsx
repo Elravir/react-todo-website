@@ -1,4 +1,5 @@
 import type {Post} from '../types';
+import { useTheme } from '../../../shared/lib/theme';
 import styles from './PostCard.module.css'
 
 interface Props{
@@ -6,8 +7,9 @@ interface Props{
 }
 
 export const PostCard = ({post}: Props) => {
+    const {theme} = useTheme();
     return(
-        <div className={styles.card}>
+        <div className={`${styles.card} ${styles[theme]}`}>
             <h3>{post.title}</h3>
             <p>{post.body}</p>
             <small> Автор: {post.author}</small>
